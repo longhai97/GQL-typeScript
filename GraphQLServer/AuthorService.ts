@@ -1,6 +1,12 @@
+declare type Book = {
+    id: string
+    name: string
+}
+
 declare type Author = {
     id: string
     name: string
+    books: Array<Book>
 }
 
 interface AuthorServiceInterface {
@@ -8,14 +14,14 @@ interface AuthorServiceInterface {
 
     get(id: string): Author
 
-    add(id: string, name: string): Author
+    add(id: string, name: string, books: Array<Book>): Author
 }
 
 export class AuthorService implements AuthorServiceInterface {
 
     authors: Author[] = [
-        {id: "foo", name: "bar"},
-        {id: "bar", name: "foo"}
+        {id: "foo", name: "bar", books: []},
+        {id: "bar", name: "foo", books: []}
     ];
 
     list(): Author[] {
@@ -26,8 +32,13 @@ export class AuthorService implements AuthorServiceInterface {
         return this.authors.find(author => author.id === id);
     }
 
-    add(id: string, name: string): Author {
-        this.authors.push({id, name});
-        return {id,name}
+    add(id: string, name: string, books: Book[]): Author {
+        this.authors.push({id, name, books});
+        return {id,name,books}
     }
+
+    // edit(id: string, name: string) {
+    //     const newValue = this.authors.filter(author => author.id === id)
+    //
+    // }
 }

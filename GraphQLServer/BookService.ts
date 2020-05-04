@@ -9,15 +9,14 @@ interface BookServiceInter {
     get(id: string, name: string): Book
 
     add(id: string, name: string): Book
-
-    del(id: string, name: string): Book[]
 }
 
 export class BookService implements BookServiceInter {
 
     books: Book[] = [
-        {id: "one", name: "book1"},
-        {id: "two", name: "book2"}
+        {id: "one", name: "bar"},
+        {id: "two", name: "foo"},
+        {id: "three", name: "book3"},
     ]
 
     list(): Book[] {
@@ -31,9 +30,5 @@ export class BookService implements BookServiceInter {
     add(id: string, name: string): Book {
         this.books.push({id,name})
         return {id,name}
-    }
-
-    del(id: string, name: string): Book {
-        this.books.delete({id, name})
     }
 }
