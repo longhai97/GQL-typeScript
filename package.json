@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/node": "^13.13.4",
     "apollo-server": "^2.12.0",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "graphql": "^15.0.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
